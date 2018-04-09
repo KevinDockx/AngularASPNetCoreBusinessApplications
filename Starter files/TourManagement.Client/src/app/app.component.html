@@ -1,0 +1,14 @@
+<div>
+  <nav class='navbar navbar-default'>
+      <div class='container-fluid'>
+          <a class='navbar-brand'>{{ title }}</a>
+          <ul class='nav navbar-nav'>
+              <li><a [routerLink]="['/tours']">Tour Management</a></li>
+              <li><a [routerLink]="['/about']">About</a></li>
+          </ul>
+      </div>
+  </nav>
+  <div class='container'>
+      <router-outlet></router-outlet>
+  </div>
+</div>

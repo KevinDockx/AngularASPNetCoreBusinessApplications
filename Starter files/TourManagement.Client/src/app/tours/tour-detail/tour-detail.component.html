@@ -1,0 +1,42 @@
+<div class="panel panel-primary" *ngIf='tour'>
+    <div class="panel-heading">
+        Details for {{tour.title}} by {{tour.band}}
+    </div>
+
+    <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-2">Description:</div>
+                    <div class="col-md-10">{{tour.description}}</div>
+                </div>
+                <div class="row" style="margin-top:10px;">
+                    <div class="col-md-2">Starts on:</div>
+                    <div class="col-md-10">{{tour.startDate|date:'MM/dd/yyyy'}}</div>
+                </div>
+                <div class="row" style="margin-top:10px;">
+                    <div class="col-md-2">Ends on:</div>
+                    <div class="col-md-10">{{tour.endDate|date:'MM/dd/yyyy'}}</div>
+                </div>
+                <div class="row" *ngIf='tour.estimatedProfits' style="margin-top:10px;" >
+                    <div class="col-md-2">Estimated profits:</div>
+                    <div class="col-md-10">{{tour.estimatedProfits}}</div>
+                </div>
+
+                <div class="row" style="margin-top:10px;" >
+                        <div class="col-md-2 h3">Shows</div>                     
+                    </div>
+
+                    <div class="row" style="margin-top:10px;" >
+                        <button class="btn btn-primary"                           
+                        [routerLink]="['show-add']"
+                        style="width:100px; margin-left:10px">Add show(s)</button>
+                    </div>                
+
+                <app-shows *ngIf='tour && tour.shows && tour.shows.length'></app-shows>
+    </div>
+
+    <div class="panel-footer">
+        <a class="btn btn-default" [routerLink]="['/tours']">
+            Back
+        </a>
+    </div>
+</div>

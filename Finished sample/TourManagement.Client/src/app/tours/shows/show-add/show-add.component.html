@@ -1,0 +1,35 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Add show(s)
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" novalidate (ngSubmit)="addShows()" 
+        [formGroup]="showCollectionForm">
+            <fieldset>
+                <div formArrayName="shows"
+                 *ngFor="let show of showCollectionForm.get('shows').controls; let i = index;">
+                    <app-show-single [showIndex]="i" 
+                    [show]="show" (removeShowClicked)="showCollectionForm.get('shows').removeAt($event)"></app-show-single>
+                </div>
+                <div class="row">
+                    <a class="btn btn-primary" (click)="addShow()" 
+                    style="width:100px; margin-left:15px; margin-bottom:15px;">Add show</a>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        <span>
+                            <button class="btn btn-primary" type="submit">
+                                Save
+                            </button>
+                        </span>
+                        <span>
+                            <a class="btn btn-default" [routerLink]="['/tours', tourId]">
+                                Back
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

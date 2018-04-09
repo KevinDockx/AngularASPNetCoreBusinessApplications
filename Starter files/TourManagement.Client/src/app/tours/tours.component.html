@@ -1,0 +1,41 @@
+<div class='panel panel-primary'>
+  <div class='panel-heading'>
+    Your tours
+  </div>
+
+  <a class="btn btn-primary" style="width:100px; margin-left:10px; margin-top:10px;"  [routerLink]="['/tour-add']">
+    Add a tour
+  </a>
+
+  <div class='panel-body'>
+    <div class='table-responsive'>
+      <table class='table' *ngIf='tours && tours.length'>
+        <thead>
+          <tr>            
+            <th>Band</th>
+            <th>Title</th>
+            <th>Starts on</th>
+            <th>Ends on</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let tour of tours'>
+            <td>{{tour.band}}</td>
+            <td>
+              <a [routerLink]="['/tours', tour.tourId]">
+                {{tour.title}}
+              </a>
+            </td>           
+            <td>{{tour.startDate|date:'dd/MM/yyyy'}}</td>
+            <td>{{tour.endDate|date:'dd/MM/yyyy'}}</td>
+            <td>
+              <a class="btn btn-primary" [routerLink]="['/tour-update', tour.tourId]">
+                Edit
+              </a>
+            </td>         
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="row" style="margin: 0px;"> 
+    <table class='table' *ngIf='shows && shows.length'>
+            <thead>
+              <tr>            
+                <th>Date</th>
+                <th>Venue </th>
+                <th>City</th>
+                <th>Country</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let show of shows'>
+                <td>{{show.date|date:'dd/MM/yyyy'}}</td>
+                <td>{{show.venue}}</td>           
+                <td>{{show.city}}</td>
+                <td>{{show.country}}</td>                          
+              </tr>
+            </tbody>
+          </table>
+</div>
